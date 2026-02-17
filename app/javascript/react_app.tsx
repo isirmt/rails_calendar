@@ -4,7 +4,11 @@ import { createRoot } from "react-dom/client";
 console.log("react_app.tsx loaded");
 
 function App() {
-  return <h1>Hello React + TypeScript (Rails)</h1>;
+  return (
+    <React.Fragment>
+      <h1 className="text-3xl font-bold text-blue-600">Hello React + TypeScript (Rails) + Tailwind CSS</h1>
+    </React.Fragment>
+  );
 }
 
 document.addEventListener("turbo:load", () => {
