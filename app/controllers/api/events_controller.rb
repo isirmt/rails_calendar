@@ -1,5 +1,27 @@
 module Api
   class EventsController < ActionController::API
+    def index
+      calender_id = params[:calendar_id]
+      if calender_id.blank?
+        render json: { errors: [ "calendar_id is required" ] }, status: :unprocessable_entity
+        nil
+      end
+
+      from_day = (params[:from_day] || 1).to_i
+      to_day = (params[:to_day] || 31).to_i
+
+      if from_day < 1 || from_day > 31 || from_day > to_day
+        render json: { errors: [ "Invalid day range" ] }, status: :unprocessable_entity
+        nil
+      end
+
+      events = Event
+        .where(calendar_id: calender_id, day: from_day..to_day)
+        .order(:day, :id)
+
+      render json: { events: events }, status: :ok
+    end
+
     def create
       template, template_error = find_template
       if template_error
