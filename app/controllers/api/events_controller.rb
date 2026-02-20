@@ -1,9 +1,14 @@
 module Api
-  class EventsController < ApplicationController
+  class EventsController < ActionController::API
     protect_from_forgery with: :null_session
 
     def create
-      template = find_template
+      template, template_error = find_template
+      if template_error
+        render json: { errors: [ template_error ] }, status: :unprocessable_entity
+        return
+      end
+
       values = event_params[:variable_values] || {}
 
       body =
@@ -47,8 +52,13 @@ module Api
     end
 
     def find_template
-      return nil if event_params[:template_id].blank?
-      Template.find(event_params[:template_id])
+      template_id = event_params[:template_id]
+      return [ nil, nil ] if template_id.blank?
+
+      template = Template.find_by(id: template_id)
+      return [ nil, "Template not found" ] if template.nil?
+
+      [ template, nil ]
     end
   end
 end

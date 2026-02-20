@@ -1,5 +1,5 @@
 module Api
-  class CalendarsController < ApplicationController
+  class CalendarsController < ActionController::API
     protect_from_forgery with: :null_session
 
     def index
