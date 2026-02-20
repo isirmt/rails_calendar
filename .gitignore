@@ -21,7 +21,7 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-# Ignore storage (uploaded files in development and any SQLite databases).
+# Ignore storage (uploaded files and other local runtime files).
 /storage/*
 !/storage/.keep
 /tmp/storage/*
@@ -38,3 +38,4 @@
 !/app/assets/builds/.keep
 
 /node_modules
+/vendor/bundle
