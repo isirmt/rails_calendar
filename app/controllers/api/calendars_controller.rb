@@ -1,6 +1,5 @@
 module Api
   class CalendarsController < ActionController::API
-
     def index
       calendars = Calendar.order(:year, :month, :id)
       render json: { calendars: calendars }, status: :ok
