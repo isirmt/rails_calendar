@@ -1,6 +1,5 @@
 module Api
   class EventsController < ActionController::API
-
     def create
       template, template_error = find_template
       if template_error
