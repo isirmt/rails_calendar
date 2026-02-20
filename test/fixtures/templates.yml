@@ -1,0 +1,25 @@
+meeting_template:
+  name: Meeting Template
+  body: |
+    {{time}}~{{topic}}
+  variable_schema:
+    time:
+      type: time
+      required: true
+    topic:
+      type: text
+      required: false
+  arrangement_mode: 1
+  is_active: true
+
+notice_template:
+  name: Notice Template
+  body: |
+    {{time}} start
+    Fixed text
+  variable_schema:
+    time:
+      type: time
+      required: true
+  arrangement_mode: 0
+  is_active: false

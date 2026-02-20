@@ -22,3 +22,46 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## ER
+
+```mermaid
+erDiagram
+    Calendar ||--o{ Event : has
+    Template ||--o{ Event : hoge
+
+    Calendar {
+        bigint id PK
+        text name
+        smallint year
+        smallint month
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    Template {
+        bigint id PK
+        text name
+        text body
+        jsonb variable_schema
+        smallint arrangement_mode
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    Event {
+        bigint id PK
+        bigint calendar_id FK
+        bigint template_id FK
+        smallint day
+        text body
+        jsonb variable_values
+        boolean is_bigger
+        smallint arrangement_mode_override
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+```

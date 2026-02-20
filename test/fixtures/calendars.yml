@@ -1,0 +1,9 @@
+main_calendar:
+  name: Main Calendar
+  year: 2026
+  month: 2
+
+secondary_calendar:
+  name: Secondary Calendar
+  year: 2026
+  month: 2

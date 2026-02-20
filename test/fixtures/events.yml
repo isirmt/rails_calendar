@@ -1,0 +1,18 @@
+templated_event:
+  calendar: main_calendar
+  template: meeting_template
+  day: 10
+  body: "10:00~Weekly meeting"
+  variable_values:
+    time: "10:00"
+    topic: "Weekly meeting"
+  is_bigger: false
+  arrangement_mode_override:
+
+freeform_event:
+  calendar: secondary_calendar
+  day: 12
+  body: "Manual event body"
+  variable_values: {}
+  is_bigger: true
+  arrangement_mode_override:
