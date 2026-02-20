@@ -1,6 +1,5 @@
 module Api
   class CalendarsController < ActionController::API
-    protect_from_forgery with: :null_session
 
     def index
       calendars = Calendar.order(:year, :month, :id)

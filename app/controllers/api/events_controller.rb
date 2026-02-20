@@ -1,6 +1,5 @@
 module Api
   class EventsController < ActionController::API
-    protect_from_forgery with: :null_session
 
     def create
       template, template_error = find_template
