@@ -1,18 +1,35 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
+import EditorPage from "./pages/EditorPage";
+import HomePage from "./pages/HomePage";
 
-console.log("react_app.tsx loaded");
+type Page = "home" | "editor";
 
-function App() {
+type AppProps = {
+  page: Page;
+  calendarId: number | null;
+};
+
+function App({ page, calendarId }: AppProps) {
+  if (page === "editor") {
+    return <EditorPage calendarId={calendarId} onBackHome={() => window.location.assign("/")} />;
+  }
+
   return (
-    <React.Fragment>
-      <h1 className="text-3xl font-bold text-blue-600">Hello React + TypeScript (Rails) + Tailwind CSS</h1>
-    </React.Fragment>
+    <HomePage
+      defaultCalendarId={calendarId ?? 1}
+      onGoEditor={(nextCalendarId) => window.location.assign(`/calendars/${nextCalendarId}/editor`)}
+    />
   );
 }
 
 document.addEventListener("turbo:load", () => {
   const el = document.getElementById("root");
   if (!el) return;
-  createRoot(el).render(<App />);
+
+  const pageData = el.dataset.page === "editor" ? "editor" : "home";
+  const rawCalendarId = el.dataset.calendarId;
+  const parsedCalendarId = rawCalendarId ? Number(rawCalendarId) : null;
+  const calendarId = Number.isFinite(parsedCalendarId) ? parsedCalendarId : null;
+
+  createRoot(el).render(<App page={pageData} calendarId={calendarId} />);
 });
