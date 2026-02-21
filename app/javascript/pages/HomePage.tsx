@@ -22,12 +22,23 @@ export default function HomePage({ defaultCalendarId, onGoEditor }: HomePageProp
             </div>
           </div>
         </section>
-        <div className="border w-full p-8">
-          <div className="flex items-center justify-center font-line text-gray-700 text-3xl font-black">
+        <div className="w-full relative p-8 flex gap-8 flex-col items-start">
+          <div className="flex w-full items-center justify-center font-line text-gray-700 text-3xl font-black">
             <div>2026年</div>
           </div>
-          <div className="flex">
-            <button>1</button>
+          <div className="flex w-full relative justify-between gap-8 flex-wrap">
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>1</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>2</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>3</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>4</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>5</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>6</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>7</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>8</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>9</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>10</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>11</button>
+            <button className={`size-12 shrink-0 flex items-center select-none justify-center rounded-md font-black text-white text-2xl bg-blue-600`}>12</button>
           </div>
         </div>
         <footer className="w-full relative">
