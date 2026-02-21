@@ -14,12 +14,7 @@ function App({ page, calendarId }: AppProps) {
     return <EditorPage calendarId={calendarId} onBackHome={() => window.location.assign("/")} />;
   }
 
-  return (
-    <HomePage
-      defaultCalendarId={calendarId ?? 1}
-      onGoEditor={(nextCalendarId) => window.location.assign(`/calendars/${nextCalendarId}/editor`)}
-    />
-  );
+  return <HomePage onGoEditor={(nextCalendarId) => window.location.assign(`/calendars/${nextCalendarId}/editor`)} />;
 }
 
 document.addEventListener("turbo:load", () => {
