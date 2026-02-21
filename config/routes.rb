@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :calendars, only: [ :index, :create ]
+    resources :templates, only: [ :index, :create, :update ]
     resources :events, only: [ :index, :create ]
   end
 end
