@@ -174,7 +174,7 @@ export default function HomeCalendar({ onGoEditor, defaultYear }: HomeCalendarPr
 
   return (
     <React.Fragment>
-      <section className="flex relative w-full flex-col gap-6 border border-gray-200 rounded-2xl shadow-lg py-6 px-6">
+      <section className="flex relative w-full flex-col gap-6 py-6 px-6">
         <div className="w-full flex items-center justify-between gap-4">
           <div className="text-3xl font-bold text-gray-800">最近開いたカレンダー</div>
         </div>
