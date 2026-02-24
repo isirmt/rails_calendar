@@ -35,7 +35,6 @@ export default function EditorPage({ calendarId, onBackHome }: EditorPageProps) 
   const [openingMenu, setOpeningMenu] = useState<"calendar" | "export" | "print" | null>(null);
   const sideMenuRef = React.useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     if (!calendarId) return;
 
@@ -106,7 +105,7 @@ export default function EditorPage({ calendarId, onBackHome }: EditorPageProps) 
                       return (
                         <div
                           key={`cell-${dayIdx}`}
-                          className={`calendar-pdf-cell ${!day ? "calendar-pdf-cell-empty" : ""}`}
+                          className={`calendar-pdf-cell ${!day ? "calendar-pdf-cell-empty" : ""} hover:bg-gray-100 hover:box-content hover:z-50! cursor-pointer hover:shadow-lg! hover:border-b-2! hover:border-r-2! hover:border-violet-400!`}
                         >
                           {day && (
                             <div
