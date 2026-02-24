@@ -21,4 +21,14 @@ class Api::CalendarsControllerTest < ActionDispatch::IntegrationTest
     json = JSON.parse(response.body)
     assert_equal "API Calendar", json.dig("calendar", "name")
   end
+
+  test "should render calendar pdf" do
+    calendar = calendars(:main_calendar)
+
+    get pdf_api_calendar_url(calendar)
+
+    assert_response :success
+    assert_equal "application/pdf", response.media_type
+    assert_includes response.headers["Content-Disposition"], "inline"
+  end
 end

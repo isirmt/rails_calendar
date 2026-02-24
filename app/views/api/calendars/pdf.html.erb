@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja" class="pdf-render">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      <%= Rails.root.join("app/assets/stylesheets/calendar_pdf.css").read.html_safe %>
+    </style>
+  </head>
+  <body class="pdf-render">
+    <div class="calendar-pdf-root">
+      <div class="calendar-pdf-canvas">
+        <h1 class="calendar-pdf-title"><%= @calendar.name %></h1>
+        <div class="calendar-pdf-grid">
+          <div class="calendar-pdf-header-row">
+          <% @week_labels.each_with_index do |label, idx| %>
+            <div class="calendar-pdf-weekday <%= idx == 0 ? "calendar-pdf-sun" : idx == 6 ? "calendar-pdf-sat" : "" %>"><%= label %></div>
+          <% end %>
+          </div>
+          <% @month_cells.each_slice(7).each do |week| %>
+            <div class="calendar-pdf-week-row">
+              <% week.each_with_index do |day, col_idx| %>
+                <div class="calendar-pdf-cell <%= day.nil? ? "calendar-pdf-cell-empty" : "" %>">
+                <% if day.present? %>
+                    <div class="calendar-pdf-day-number <%= col_idx == 0 ? "calendar-pdf-sun" : col_idx == 6 ? "calendar-pdf-sat" : "" %>"><%= day %></div>
+                  <% daily_events = @events_by_day.fetch(day, []) %>
+                  <% if daily_events.any? %>
+                      <div class="calendar-pdf-day-events">
+                      <% daily_events.each do |event| %>
+                          <div><%= event.body.to_s %></div>
+                      <% end %>
+                      </div>
+                  <% end %>
+                <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

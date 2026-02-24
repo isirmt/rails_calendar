@@ -8,6 +8,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.18",
+    "puppeteer": "^24.37.5",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

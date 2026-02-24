@@ -68,3 +68,4 @@ end
 gem "jsbundling-rails", "~> 1.3"
 
 gem "tailwindcss-rails", "~> 4.4"
+gem "grover", "~> 1.2"

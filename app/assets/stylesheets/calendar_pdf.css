@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+.calendar-pdf-root,
+.calendar-pdf-root * {
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.calendar-pdf-canvas {
+  width: 297mm;
+  min-height: 210mm;
+  padding: 10mm;
+  background: #fff;
+  border: 1px solid #d4d4d8;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
+.calendar-pdf-title {
+  margin: 0;
+  padding-bottom: 3mm;
+  font-size: 6.2mm;
+  font-weight: 700;
+  text-align: center;
+}
+
+.calendar-pdf-grid {
+  margin-top: 4mm;
+  border-left: 1px solid #a1a1aa;
+  border-top: 1px solid #a1a1aa;
+}
+
+.calendar-pdf-header-row,
+.calendar-pdf-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-pdf-weekday {
+  height: 8mm;
+  border-right: 1px solid #a1a1aa;
+  border-bottom: 1px solid #a1a1aa;
+  font-size: 4mm;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-pdf-cell {
+  height: 24mm;
+  border-right: 1px solid #a1a1aa;
+  border-bottom: 1px solid #a1a1aa;
+  padding: 1.3mm;
+  overflow: hidden;
+}
+
+.calendar-pdf-cell-empty {
+  background: #f4f4f5;
+}
+
+.calendar-pdf-day-number {
+  font-size: 4.5mm;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-pdf-day-events {
+  margin-top: 1mm;
+  font-size: 2.5mm;
+  line-height: 1.2;
+  white-space: pre-wrap;
+}
+
+.calendar-pdf-sun {
+  color: #da4949;
+}
+
+.calendar-pdf-sat {
+  color: #3e69e0;
+}
+
+html.pdf-render,
+body.pdf-render {
+  margin: 0;
+  padding: 0;
+  width: 297mm;
+  height: 210mm;
+  background: #fff;
+}
+
+.pdf-render .calendar-pdf-canvas {
+  border: 0;
+  box-shadow: none;
+}
